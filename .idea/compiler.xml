@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="value_interval" />
         <module name="max_interval" />
+        <module name="Delivery_Robot_Extension" />
         <module name="Dilivery_Robot" />
       </profile>
     </annotationProcessing>
