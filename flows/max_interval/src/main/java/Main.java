@@ -1,4 +1,6 @@
 import java.util.*;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.FutureTask;
 
 public class Main {
     public static String generateText(String letters, int length) {
@@ -10,7 +12,7 @@ public class Main {
         return text.toString();
     }
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException, ExecutionException {
         String[] texts = new String[25];
 
         for (int i = 0; i < texts.length; i++) {

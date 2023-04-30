@@ -5,6 +5,8 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/flows/value_interval/pom.xml" />
+        <option value="$PROJECT_DIR$/synch/Dilivery_Robot/pom.xml" />
+        <option value="$PROJECT_DIR$/flows/max_interval/pom.xml" />
       </list>
     </option>
   </component>
