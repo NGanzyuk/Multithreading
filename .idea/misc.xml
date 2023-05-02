@@ -8,6 +8,7 @@
         <option value="$PROJECT_DIR$/synch/Dilivery_Robot/pom.xml" />
         <option value="$PROJECT_DIR$/flows/max_interval/pom.xml" />
         <option value="$PROJECT_DIR$/synch/Delivery_Robot_Extension/pom.xml" />
+        <option value="$PROJECT_DIR$/multithread_variables/NicknameGenerator/pom.xml" />
       </list>
     </option>
   </component>
