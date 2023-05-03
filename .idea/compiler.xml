@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="NicknameGenerator" />
+        <module name="analyzerProgram" />
         <module name="value_interval" />
         <module name="max_interval" />
         <module name="Delivery_Robot_Extension" />

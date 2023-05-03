@@ -26,53 +26,32 @@ public class Main {
         return false;
     }
     public static boolean checkSecondCriteria(String text){
-        char[] textArray = text.toCharArray();
-        boolean notHasOtherSymbols = true;
-        for (int i = 1; i < textArray.length; i++) {
-            if(textArray[i] != textArray[0]){
-                notHasOtherSymbols = false;
+        for (int i = 0; i < text.length(); i++) {
+            if(text.charAt(i) != text.charAt(0)){
+               return false;
             }
-        }
-        if (notHasOtherSymbols){
-            return true;
-        }
-        return false;
-    }
-
-    public static boolean checkThirdCriteria(String text){
-        char[] textArray = text.toCharArray();
-        if (textArray[0] == 'a'){
-            for (int i = 0; i < textArray.length; i++) {
-                if(textArray[i] == 'b'){
-                    if(text.substring(i).contains("a")){
-                        return false;
-                    }
-                }
-                if(textArray[i] == 'c'){
-                    if(text.substring(i).contains("a") || text.substring(i).contains("b")){
-                        return false;
-                    }
-                }
-            }
-        }
-        if (textArray[0] == 'b'){
-            for (int i = 0; i < textArray.length; i++) {
-                if(text.contains("a")){
-                    return false;
-                }
-                if(textArray[i] == 'c'){
-                    if(text.substring(i).contains("b")){
-                        return false;
-                    }
-                }
-            }
-        }
-        if (textArray[0] == 'c'){
-            return false; //Всегда false, потому что либо не подходит, либо это другой критерий
         }
         return true;
     }
 
+    public static boolean checkThirdCriteria(String text){
+        for (int i = 1; i < text.length(); i++) {
+            if (text.charAt(i) < text.charAt(i - 1))
+                return false;
+        }
+        return true;
+    }
+    public static void increment(int textLength){
+        if (textLength == 3){
+            threeLetters.getAndIncrement();
+        }
+        if (textLength == 4){
+            fourLetters.getAndIncrement();
+        }
+        if (textLength == 5){
+            fiveLetters.getAndIncrement();
+        }
+    }
     public static void main(String[] args) throws InterruptedException {
         Random random = new Random();
         String[] texts = new String[100_000];
@@ -82,15 +61,7 @@ public class Main {
         Thread thread1 = new  Thread(()->{
             for (int i = 0; i < texts.length; i++) {
                 if(checkFirstCriteria(texts[i])){
-                    if (texts[i].length() == 3){
-                        threeLetters.getAndIncrement();
-                    }
-                    if (texts[i].length() == 4){
-                        fourLetters.getAndIncrement();
-                    }
-                    if (texts[i].length() == 5){
-                        fiveLetters.getAndIncrement();
-                    }
+                    increment(texts[i].length());
                 }
             }
         });
@@ -98,15 +69,7 @@ public class Main {
         Thread thread2 = new Thread(()->{
             for (int i = 0; i < texts.length; i++) {
                 if(checkSecondCriteria(texts[i])){
-                    if (texts[i].length() == 3){
-                        threeLetters.getAndIncrement();
-                    }
-                    if (texts[i].length() == 4){
-                        fourLetters.getAndIncrement();
-                    }
-                    if (texts[i].length() == 5){
-                        fiveLetters.getAndIncrement();
-                    }
+                    increment(texts[i].length());
                 }
             }
         });
@@ -114,15 +77,7 @@ public class Main {
         Thread thread3 = new Thread(()->{
             for (int i = 0; i < texts.length; i++) {
                 if(checkThirdCriteria(texts[i])){
-                    if (texts[i].length() == 3){
-                        threeLetters.getAndIncrement();
-                    }
-                    if (texts[i].length() == 4){
-                        fourLetters.getAndIncrement();
-                    }
-                    if (texts[i].length() == 5){
-                        fiveLetters.getAndIncrement();
-                    }
+                    increment(texts[i].length());
                 }
             }
         });
